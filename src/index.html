@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+	</head>
+	
+	<body>
+		<div id="root">
+			<span v-bind:title="message" v-bind:id="'abc'">
+				{{message}}
+			</span>
+			<span v-if="false">
+				{{message}}
+			</span>
+			<ul>
+				<li v-for="course in courseList">{{course}}</li>
+			</ul>
+			<hr />
+			<ul v-if="isShow">
+				<li v-for="(course,index) in courseList">{{index}}: {{course}}</li>
+			</ul>
+			<mycomponent></mycomponent>
+			<button v-on:click="showHide">点击</button>
+			<input v-bind:type="'text'" v-model="message" />{{message}}
+			<hr />
+			<div v-text="html"> </div>
+			<div v-html="html"> </div>
+			<template v-if="isShow">
+				<ul>
+					<li v-for="course in courseList">{{course}}</li>
+				</ul>
+				<ul>
+					<li v-for="course in courseList">{{course}}</li>
+				</ul>
+			</template>
+			<template v-else>
+				<ul>
+					<li v-for="course in courseList">{{course}}</li>
+				</ul>
+			</template>
+			<hr />
+			<ul v-show="isShow">
+				<li v-for="(course,index) in courseList" v-if="index>=1" :key="index" :title="'jj'">{{index}}:{{course}}</li>
+			</ul>
+		</div>
+		
+	</body>
+</html>
